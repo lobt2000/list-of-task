@@ -1,0 +1,22 @@
+
+
+
+<div class="container">
+    <div class="bad-word">
+        <span class="title">Bad words:   </span>
+        <span class="words" [textContent]="badWord"></span>
+    </div>
+    <div class="add-word">
+        <input type="text" [placeholder]="wordholder" [style.borderColor]="wordColor" [(ngModel)]="word" name="word" class="input-word">
+        <button class="add" (click)="addWord()">Add</button>
+        <button class="reset" (click)="resetWord()">Reset</button>
+    </div>
+
+    <textarea  id="textarea" [placeholder]="areaholder" [style.borderColor]="borderColor" [(ngModel)]="text" name="text"></textarea>
+    <div class="button">
+        <button class="cenzor" (click)="cenzor()">Cenzor</button> 
+    <button class="clear" (click)="clear()">Clear</button> 
+    </div>
+</div>
+
+

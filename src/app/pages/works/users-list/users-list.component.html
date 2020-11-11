@@ -1,0 +1,45 @@
+
+<div class="container">
+    <div class="form">
+        <form name='user' class="user">
+            <label for="login">Login</label>
+            <input type="text" [(ngModel)]="newName" name="newName" id="login" placeholder="Enter login">
+            <label for="pass">Password</label>
+            <input type="password" [(ngModel)]="newPass" name="newPass" id="pass" placeholder="Enter password">
+            <label for="email">Email Address</label>
+            <input type="text" [(ngModel)]="newEmail" name="newEmail" id="email" placeholder="Enter email">
+            <input type="button" [disabled]="isTrue" (click)="add()" value="Add user" class="but" *ngIf="isCheck; else new">
+           <ng-template #new>
+            <input type="button" value="Edit user" class="but1" *ngIf="!isCheck" (click)="save()">
+           </ng-template>
+           
+            
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+            <th >#</th>
+            <th [style.minWidth]="widthLogin">Login</th>
+            <th [style.minWidth]="widthPass">Password</th>
+            <th [style.minWidth]="widthEmail">Email</th>
+            <th >Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+                <tr *ngFor="let user of users; index as i">
+                    <td [style.minWidth]="widthIndex + 'px'">{{ i+1 }}</td>
+                    <td [style.minWidth]="widthLogin">{{ users[i].name }}</td>
+                    <td [style.minWidth]="widthPass">{{ users[i].pass }}</td>
+                    <td [style.minWidth]="widthEmail">{{ users[i].email }}</td>
+                    <td [style.minWidth]="widthEdit"><button class="edit" (click)="edit(i)" >Edit</button></td>
+                    <td [style.minWidth]="widthDel"><button class="del" [style.backgroundColor]="!isCheck ? '#d65353' : 'red' " (click)="del(i)" [disabled]="!isCheck">Delete</button></td>
+                    
+                </tr>
+            
+        </tbody>
+    </table>
+
+</div>
